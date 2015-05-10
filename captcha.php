@@ -1,5 +1,4 @@
 <?php
-	session_start();
 	include("GIFEncoder.class.php"); //la classe qui se charge de l'encodage du gif
 
 	function cara_aleatoire($longueur)
@@ -10,13 +9,13 @@
 			$retour .= $chaine[mt_rand(0,strlen($chaine)-1)];
 		return $retour;
 	}
-	$captcha_largeur = 220;
-	$captcha_hauteur = 100;
+	$captcha_largeur = 200;
+	$captcha_hauteur = 50;
 	$longueur_texte = 6;
 	$police = 'ariblk.ttf';
-	$taille_texte = mt_rand(25,35);
-	$angle_texte = mt_rand(-10,10);
-	$nb_trait = 500;
+	$taille_texte = mt_rand(28,32);
+	$angle_texte = mt_rand(-3,3);
+	$nb_trait = 200;
 	$duree_image = 3; //milliseconde
 	$nb_image = 10; //nombre de frames du gif
 	 
@@ -31,7 +30,7 @@
 	$coord = imagettfbbox($taille_texte, $angle_texte, $police, $texte);
 	$zone_abscisse = $captcha_largeur-$coord[2];
 	$position_x_texte = 5;
-	$position_y_texte = 65;
+	$position_y_texte = 40;
 	 
 	for($j = 0; $j<$nb_image; $j++)
 	{ //pour chacune des images constituant le gif
